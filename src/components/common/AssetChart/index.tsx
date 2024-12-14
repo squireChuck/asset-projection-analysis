@@ -19,6 +19,13 @@ interface Props {
 function Chart(props: Props) {
   const { assets, assetAttribute } = props;
 
+  if (assets.length === 0) {
+    return (
+      <div>
+        <em>Not enough data for the {assetAttribute} chart...</em>
+      </div>
+    );
+  }
   const labels = Object.keys(assets[0]).filter(key => !['Asset', 'Attribute'].includes(key)).sort((a, b) => {
     return Number.parseInt(a) - Number.parseInt(b);
   });
