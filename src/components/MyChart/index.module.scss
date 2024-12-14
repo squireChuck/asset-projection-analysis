@@ -2,3 +2,34 @@
   height: 100%;
   width: 100%;
 }
+
+.visible-assets {
+  border: 1px solid black;
+  padding: 0.5rem;
+  margin: 0.5rem;
+
+  width: 50%
+}
+
+.visible-assets-heading {
+  margin: 0;
+}
+
+.visible-assets-inputs {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.visible-assets-input {
+  margin: 1rem;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.visible-assets-input-checkbox {
+  margin-right: 0.25rem;
+}

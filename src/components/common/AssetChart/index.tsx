@@ -1,12 +1,7 @@
 
 import { Line } from '../Chart';
+import { Asset } from '../../common/types';
 // import styles from './index.module.scss';
-
-interface Asset {
-  Asset: string;
-  Attribute: string;
-  [key: string]: string;
-}
 
 // TODO chartjs type?
 interface Dataset {
