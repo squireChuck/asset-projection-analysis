@@ -1,18 +1,33 @@
 import { useState } from 'react';
 
-import cashFlowData from '../../assets/cash-flow-testing.csv';
+
 import AssetChart from '../common/AssetChart';
-import { Asset } from '../common/types';
+import { Projection } from '../common/types';
 import styles from './index.module.scss';
 
-
-function Chart() {
-  console.log('', cashFlowData);
-  const typedData: Asset[] = cashFlowData as Asset[];
-  const allAssetIds = Array.from(new Set((typedData).map(row => row.Asset)));
+function MyChart(props: { projections: Projection[] } ) {
+  const { projections } = props;
+  console.log('', projections[0]);
+  console.log('', projections[1]);
+  const allAssetKeys: string[] = projections.reduce((accum, projection) => {
+    return [
+      ...accum,
+      ...projection.assets.map(asset => asset.Asset)
+    ];
+  }, [] as string[]);
+  const allAssetIds = Array.from(new Set((allAssetKeys)));
   const [selectedAssetIds, setSelectedAssetIds] = useState(allAssetIds);
   console.log('', selectedAssetIds);
-  const filteredCashFlowData = typedData.filter(row => selectedAssetIds.includes(row.Asset));
+  const filteredCashFlowData: Projection[] = projections.reduce((accum, projection) => {
+    const next: Projection = {
+      ...projection,
+      assets: projection.assets.filter(row => selectedAssetIds.includes(row.Asset))
+    }
+    return [
+      ...accum,
+      next
+    ];
+  }, [] as Projection[]);
   return (
     <>
       <div className={styles["visible-assets"]}>
@@ -39,16 +54,17 @@ function Chart() {
           ))}
         </div>
       </div>
+      {/* TODO rename to projectionschart?? */}
       <AssetChart
-        assets={filteredCashFlowData}
+        projections={filteredCashFlowData}
         assetAttribute="Market Value"
       />
       <AssetChart
-        assets={filteredCashFlowData}
+        projections={filteredCashFlowData}
         assetAttribute="Net yield"
       />
     </>
   );
 }
 
-export default Chart;
+export default MyChart;

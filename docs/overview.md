@@ -8,7 +8,26 @@
 
 
 Open questions
-- Validate data ahead of time? e.g. what if there are missing quarters? some portfolios have fewer attributes than others?
+- Validate data ahead of time? e.g. what if there are missing quarters? some files have fewer assets/fewer attributes than others?
+
+Visible assets
+- As a user, I want to control which assets are visible in both charts so that it's easier to analyze the most useful assets.
+   - Toggle which Assets are shown
+   - TODO remove Legends from both charts?
+   - TODO use consistent colors between when adding/removing Assets (i.e. avoid grey lines)
+
+Multiple asset files
+- As a user, I want to compare Assets across multiple years so that it's easier to identify anomalies.
+   - Sometimes I don't know an Asset's characteristic so I refer to prior years to gain context.
+   - It's easier to compare Assets between years when they're on the same graph, 
+     e.g. as opposed to consecutive, separate graphs.
+   - TODO should I control Visible Assets per file? Or should Visible Assets apply to **_all_** cash flow data files
+
+TODO's
+- how to control labels of datasets? filename, user editable with simple default
+   - Box on top => `{ dataset name, file name (edit dataset name), fileId, Asset[] }`
+- ok to compare graphs vertically? (Original mockup had graphs side-by-side)
+- what is a good fixed size for the graphs? Options to toggle small/med/large sizes?
 
 ## Learning
 

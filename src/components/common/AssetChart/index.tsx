@@ -1,6 +1,6 @@
 
 import { Line } from '../Chart';
-import { Asset } from '../../common/types';
+import { Asset, Projection } from '../../common/types';
 // import styles from './index.module.scss';
 
 // TODO chartjs type?
@@ -12,36 +12,54 @@ interface Dataset {
 
 interface Props {
   assetAttribute: 'Market Value' | 'Net yield';
-  assets: Asset[];
+  projections: Projection[];
 }
 
 // https://www.chartjs.org/docs/latest/samples/line/line.html
 function Chart(props: Props) {
-  const { assets, assetAttribute } = props;
+  const { projections, assetAttribute } = props;
 
-  if (assets.length === 0) {
+  const projectionsWithData = projections?.filter(projection => projection.assets?.length > 0) ?? [];
+  if (projectionsWithData.length === 0) {
     return (
       <div>
         <em>Not enough data for the {assetAttribute} chart...</em>
       </div>
     );
   }
-  const labels = Object.keys(assets[0]).filter(key => !['Asset', 'Attribute'].includes(key)).sort((a, b) => {
+  const labels = Object.keys(projections[0].assets[0]).filter(key => !['Asset', 'Attribute'].includes(key)).sort((a, b) => {
     return Number.parseInt(a) - Number.parseInt(b);
   });
-  const datasets = assets.reduce((accum: Dataset[], asset: Asset) => {
-    return asset.Attribute === assetAttribute
-      ? 
-        [
-          ...accum,
-          {
-            label: `Asset ${asset.Asset}`,
-            data: labels.map(label => asset[label]),
-            borderWidth: 1
-          }
-        ]
-      : accum;
-  }, []);
+  // const datasetsOld = assets.reduce((accum: Projection[], asset: Asset) => {
+  //   return asset.Attribute === assetAttribute
+  //     ? 
+  //       [
+  //         ...accum,
+  //         {
+  //           label: `Asset ${asset.Asset}`,
+  //           data: labels.map(label => asset[label]),
+  //           borderWidth: 1
+  //         }
+  //       ]
+  //     : accum;
+  // }, []);
+  const datasets: Dataset[] = projectionsWithData.reduce((accum: Dataset[], projection: Projection) => {
+    const next: Dataset[] = projection.assets.reduce((accum: Dataset[], asset: Asset) => {
+        console.log(`Projection ${projection.name}, Asset ${asset.Asset}, ${asset.Attribute}`)
+        return asset.Attribute === assetAttribute
+          ? 
+            [
+              ...accum,
+              {
+                label: `Projection ${projection.name}, Asset ${asset.Asset}`,
+                data: labels.map(label => asset[label]),
+                borderWidth: 1
+              }
+            ]
+          : accum;
+        }, []);
+      return [ ...accum, ...next];
+      }, []);
 
   const data = {
     labels,
