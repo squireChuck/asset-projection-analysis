@@ -39,7 +39,7 @@ function MyChart(props: { projections: Projection[] } ) {
           <div className={styles["visible-projections-inputs"]}>
             {projections.map(projection => (
               <div className={styles["visible-projections-input"]}>
-                <label>
+                <label className={styles["visible-projections-label"]}>
                   <input
                     className={styles["visible-projections-input-checkbox"]}
                     type="checkbox"
@@ -63,7 +63,7 @@ function MyChart(props: { projections: Projection[] } ) {
           <div className={styles["visible-assets-inputs"]}>
             {allAssetIds.map(assetId => (
               <div className={styles["visible-assets-input"]}>
-                <label>
+                <label className={styles["visible-assets-label"]}>
                   <input
                     className={styles["visible-assets-input-checkbox"]}
                     type="checkbox"

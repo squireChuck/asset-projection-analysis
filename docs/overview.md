@@ -27,8 +27,8 @@ Multiple asset files
 TODO's
 - Data transform process
    - Given raw csv file from model run (aka Sheet CSV export) -> (mock) api call for data -> structured data for chart consumption
-- new name - project-scry? project-verify, -verifeye
 - easy way to generate datasets?
+- new name - project-scry? project-verify, -verifeye
 - allow renaming of projections (show fileName, allow update of project name)
 
 ## Learning

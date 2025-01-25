@@ -30,6 +30,11 @@
   flex-wrap: wrap;
 }
 
+.visible-assets-label,
+.visible-projections-label {
+  display: flex;
+}
+
 .visible-assets-input,
 .visible-projections-input {
   margin: 1rem;
@@ -40,7 +45,6 @@
   align-content: center;
 }
 
-// TODO fix checkbox + label alignment
 .visible-assets-input-checkbox,
 .visible-projections-input-checkbox {
   margin-right: 0.25rem;
