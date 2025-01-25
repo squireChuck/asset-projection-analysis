@@ -25,7 +25,6 @@ Multiple asset files
      e.g. as opposed to consecutive, separate graphs.
 
 TODO's
-- fix colors when adding/removing datasets
 - Data transform process
    - Given raw csv file from model run (aka Sheet CSV export) -> (mock) api call for data -> structured data for chart consumption
 - new name - project-scry? project-verify, -verifeye
@@ -64,3 +63,6 @@ TODO's
 
 - autoprefixer (browser prefixes on styles): https://autoprefixer.github.io/
    - https://stackoverflow.com/questions/71415014/how-to-use-autoprefixer-with-vitejs-and-react
+- https://www.chartjs.org/docs/latest/general/colors.html#advanced-color-palettes
+   - advanced color paletes for coloring datasets
+   - https://github.com/chartjs/awesome?tab=readme-ov-file#plugins

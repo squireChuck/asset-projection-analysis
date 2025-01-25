@@ -60,6 +60,9 @@ function Chart(props: Props) {
       },
     },
     plugins: {
+      colors: {
+        forceOverride: true
+      },
       title: {
           display: true,
           text: assetAttribute,
