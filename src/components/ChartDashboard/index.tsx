@@ -4,7 +4,7 @@ import ProjectionChart from '../common/ProjectionChart';
 import { Projection } from '../common/types';
 import styles from './index.module.scss';
 
-function MyChart(props: { projections: Projection[] } ) {
+function ChartDashboard(props: { projections: Projection[] } ) {
   const { projections } = props;
   console.log('', projections[0]);
   console.log('', projections[1]);
@@ -95,4 +95,4 @@ function MyChart(props: { projections: Projection[] } ) {
   );
 }
 
-export default MyChart;
+export default ChartDashboard;

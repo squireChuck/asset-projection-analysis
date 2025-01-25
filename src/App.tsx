@@ -5,7 +5,7 @@ import {
   registerables
 } from 'chart.js'
 
-import MyChart from './components/MyChart';
+import ChartDashboard from './components/ChartDashboard';
 
 // @ts-ignore
 import cashFlowData from './assets/cash-flow-testing.csv';
@@ -34,7 +34,7 @@ function App() {
   return (
     <>
     <div className="">
-      <MyChart projections={datasets}/>
+      <ChartDashboard projections={datasets}/>
     </div>
     </>
   )
