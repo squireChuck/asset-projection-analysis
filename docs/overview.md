@@ -53,6 +53,8 @@ TODO's
       - https://medium.com/@pdx.lucasm/canvas-with-react-js-32e133c05258
       - https://www.chartjs.org/docs/latest/samples/line/line.html
       - pulled in files from https://github.com/reactchartjs/react-chartjs-2/tree/master
+      - responsive charts
+      - coloring for dynamic datasets
 ## Tools
 
 - Runtime: Node v20
