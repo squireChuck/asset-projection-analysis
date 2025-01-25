@@ -25,11 +25,12 @@ Multiple asset files
      e.g. as opposed to consecutive, separate graphs.
 
 TODO's
+- Update README for description, docs, running locally. Clean up docs
 - Data transform process
    - Given raw csv file from model run (aka Sheet CSV export) -> (mock) api call for data -> structured data for chart consumption
 - easy way to generate datasets?
 - new name - project-scry? project-verify, -verifeye
-- allow renaming of projections (show fileName, allow update of project name)
+- allow renaming of Projections (show fileName, allow update of project name)
 
 ## Learning
 
