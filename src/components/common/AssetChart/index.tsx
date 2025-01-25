@@ -69,12 +69,20 @@ function Chart(props: Props) {
     scales: {
       y: {
         beginAtZero: true
+      },
+    },
+    plugins: {
+      title: {
+          display: true,
+          text: assetAttribute,
       }
     }
   };
 
   return (
     <>
+    {/* TODO use built in chart title? */}
+      {/* <h2>{assetAttribute}</h2> */}
       <Line data={data} options={options} />
     </>
   );
