@@ -1,9 +1,8 @@
 
 import { Line } from '../Chart';
 import { Asset, Projection } from '../types';
-// import styles from './index.module.scss';
+import styles from './index.module.scss';
 
-// TODO chartjs type?
 interface Dataset {
   label: string;
   data: string[];
@@ -54,6 +53,7 @@ function Chart(props: Props) {
     datasets
   };
   const options = {
+    maintainAspectRatio: false,
     scales: {
       y: {
         beginAtZero: true
@@ -69,7 +69,9 @@ function Chart(props: Props) {
 
   return (
     <>
-      <Line data={data} options={options} />
+      <div className={styles["chart"]}>
+        <Line data={data} options={options} />
+      </div>
     </>
   );
 }

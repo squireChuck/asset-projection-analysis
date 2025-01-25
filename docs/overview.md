@@ -10,10 +10,13 @@
 Open questions
 - Validate data ahead of time? e.g. what if there are missing quarters? some files have fewer assets/fewer attributes than others?
 
+Visible projections
+- As a user, I want to control which projections are visible in both charts so that it's easier to analyze the most useful projections.
+   - Toggle which Projections are shown
+
 Visible assets
 - As a user, I want to control which assets are visible in both charts so that it's easier to analyze the most useful assets.
    - Toggle which Assets are shown
-   - TODO use consistent colors between when adding/removing Assets (i.e. avoid grey lines)
 
 Multiple asset files
 - As a user, I want to compare Assets across multiple years so that it's easier to identify anomalies.
@@ -22,8 +25,12 @@ Multiple asset files
      e.g. as opposed to consecutive, separate graphs.
 
 TODO's
+- fix colors when adding/removing datasets
+- Data transform process
+   - Given raw csv file from model run (aka Sheet CSV export) -> (mock) api call for data -> structured data for chart consumption
 - new name - project-scry? project-verify, -verifeye
-- what is a good fixed size for the graphs? Options to toggle small/med/large sizes?
+- easy way to generate datasets?
+- allow renaming of projections (show fileName, allow update of project name)
 
 ## Learning
 
