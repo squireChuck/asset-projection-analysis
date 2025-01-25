@@ -3,7 +3,13 @@
   width: 100%;
 }
 
-.visible-assets {
+.visible-filters {
+  display: flex;
+  justify-content: row;
+}
+
+.visible-assets,
+.visible-projections {
   border: 1px solid black;
   padding: 0.5rem;
   margin: 0.5rem;
@@ -11,25 +17,33 @@
   width: 50%
 }
 
-.visible-assets-heading {
+.visible-assets-heading,
+.visible-projections-heading {
   margin: 0;
 }
 
-.visible-assets-inputs {
+.visible-assets-inputs,
+.visible-projections-inputs {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   flex-wrap: wrap;
 }
 
-.visible-assets-input {
+.visible-assets-input,
+.visible-projections-input {
   margin: 1rem;
 
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
+  align-content: center;
 }
 
-.visible-assets-input-checkbox {
+// TODO fix checkbox + label alignment
+.visible-assets-input-checkbox,
+.visible-projections-input-checkbox {
   margin-right: 0.25rem;
+
+  flex: none;
 }

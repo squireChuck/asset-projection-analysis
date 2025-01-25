@@ -30,19 +30,7 @@ function Chart(props: Props) {
   const labels = Object.keys(projections[0].assets[0]).filter(key => !['Asset', 'Attribute'].includes(key)).sort((a, b) => {
     return Number.parseInt(a) - Number.parseInt(b);
   });
-  // const datasetsOld = assets.reduce((accum: Projection[], asset: Asset) => {
-  //   return asset.Attribute === assetAttribute
-  //     ? 
-  //       [
-  //         ...accum,
-  //         {
-  //           label: `Asset ${asset.Asset}`,
-  //           data: labels.map(label => asset[label]),
-  //           borderWidth: 1
-  //         }
-  //       ]
-  //     : accum;
-  // }, []);
+
   const datasets: Dataset[] = projectionsWithData.reduce((accum: Dataset[], projection: Projection) => {
     const next: Dataset[] = projection.assets.reduce((accum: Dataset[], asset: Asset) => {
         console.log(`Projection ${projection.name}, Asset ${asset.Asset}, ${asset.Attribute}`)
@@ -81,8 +69,6 @@ function Chart(props: Props) {
 
   return (
     <>
-    {/* TODO use built in chart title? */}
-      {/* <h2>{assetAttribute}</h2> */}
       <Line data={data} options={options} />
     </>
   );
