@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import AssetChart from '../common/AssetChart';
+import ProjectionChart from '../common/ProjectionChart';
 import { Projection } from '../common/types';
 import styles from './index.module.scss';
 
@@ -83,12 +83,11 @@ function MyChart(props: { projections: Projection[] } ) {
           </div>
         </div>
       </div>
-      {/* TODO rename to projectionschart?? */}
-      <AssetChart
+      <ProjectionChart
         projections={filteredCashFlowData}
         assetAttribute="Market Value"
       />
-      <AssetChart
+      <ProjectionChart
         projections={filteredCashFlowData}
         assetAttribute="Net yield"
       />

@@ -1,6 +1,6 @@
 
 import { Line } from '../Chart';
-import { Asset, Projection } from '../../common/types';
+import { Asset, Projection } from '../types';
 // import styles from './index.module.scss';
 
 // TODO chartjs type?

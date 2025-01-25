@@ -17,9 +17,8 @@ import { Asset, Projection } from './components/common/types';
 ChartJS.register(...registerables);
 
 function App() {
-  // TODO Show/hide projections + file name
-  // TODO allow renaming  of projection name
   // TODO Tidy up chart margins
+  // TODO allow renaming  of projection name
   const datasets: Projection[] = [
     {
       id: 'currentYearDataset',
