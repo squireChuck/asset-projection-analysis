@@ -34,6 +34,8 @@ TODO's
     - search bar to filter visible assets (inside widget)
        - Prolly not needed for projections - only two options anyways
     - Remove borders around everything - use a separator
+    - fix input checkbox label alignment
+    - what is a comfortable size for rendering the charts vertically? should there be an option to toggle which chart is shown (market value, net yield, both?)
     - Show only selected/visible assets + Show all assets toggle
 - Update README for description, docs, running locally. Clean up docs
 - Data transform process

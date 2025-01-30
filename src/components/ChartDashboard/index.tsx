@@ -3,11 +3,14 @@ import { useState } from 'react';
 import ProjectionChart from '../common/ProjectionChart';
 import { Projection } from '../common/types';
 import styles from './index.module.scss';
-
+// Add input box
+// Add styles
+// Add behavior
 function ChartDashboard(props: { projections: Projection[] } ) {
   const { projections } = props;
   console.log('', projections[0]);
   console.log('', projections[1]);
+  const [searchAssetCheckboxString, setSearchAssetCheckboxString] = useState("");
   const [selectedProjectionIds, setSelectedProjectionIds] = useState<string[]>(projections.map(p => p.id));
   const allAssetKeys: string[] = projections.reduce((accum, projection) => {
     return [
@@ -60,8 +63,20 @@ function ChartDashboard(props: { projections: Projection[] } ) {
         </div>
         <div className={styles["visible-assets"]}>
           <h2 className={styles["visible-assets-heading"]}>Assets</h2>
+          <div>
+            <span onClick={() => setSelectedAssetIds(allAssetIds)}>Select all</span>
+            <span>------</span>
+            <span onClick={() => setSelectedAssetIds([])}>Clear</span>
+          </div>
+          <input
+            type="text"
+            className={styles["visible-assets-checkbox-filter"]}
+            placeholder="Filter"
+            value={searchAssetCheckboxString}
+            onChange={(e) => setSearchAssetCheckboxString(e.target.value)}
+          />
           <ul className={styles["visible-assets-inputs"]}>
-            {allAssetIds.map(assetId => (
+            {allAssetIds.filter(assetId => assetId.includes(searchAssetCheckboxString)).map(assetId => (
               <li className={styles["visible-assets-input"]}>
                 <label className={styles["visible-assets-label"]}>
                   <input

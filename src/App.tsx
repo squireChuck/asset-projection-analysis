@@ -8,7 +8,7 @@ import {
 import ChartDashboard from './components/ChartDashboard';
 
 // @ts-ignore
-import cashFlowData from './assets/cash-flow-testing.csv';
+import cashFlowData from './assets/cash-flow-testing-test.csv';
 // @ts-ignore
 import cashFlowDataYear0 from './assets/cash-flow-testing-year-0.csv';
 // import styles from './App.module.scss';
