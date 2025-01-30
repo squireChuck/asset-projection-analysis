@@ -30,9 +30,10 @@ TODO's
   - copy new datasets into cash flow files - DONE
   - copy script into source code - DONE
   - adjust filters + graphs based on quantity of data
-    - move filters to collapsible side bar widgets?
+    - move filters to collapsible side bar widgets? - DONE
     - search bar to filter visible assets (inside widget)
        - Prolly not needed for projections - only two options anyways
+    - Remove borders around everything - use a separator
     - Show only selected/visible assets + Show all assets toggle
 - Update README for description, docs, running locally. Clean up docs
 - Data transform process

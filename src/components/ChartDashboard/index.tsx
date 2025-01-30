@@ -35,10 +35,10 @@ function ChartDashboard(props: { projections: Projection[] } ) {
     <div className={styles["dashboard"]}>
       <div className={styles["dashboard-sidebar"]}>
         <div className={styles["visible-projections"]}>
-          <h2 className={styles["visible-projections-heading"]}>Visible projections</h2>
-          <div className={styles["visible-projections-inputs"]}>
+          <h2 className={styles["visible-projections-heading"]}>Projections</h2>
+          <ul className={styles["visible-projections-inputs"]}>
             {projections.map(projection => (
-              <div className={styles["visible-projections-input"]}>
+              <li className={styles["visible-projections-input"]}>
                 <label className={styles["visible-projections-label"]}>
                   <input
                     className={styles["visible-projections-input-checkbox"]}
@@ -54,15 +54,15 @@ function ChartDashboard(props: { projections: Projection[] } ) {
                     />
                   {projection.name}
                 </label>
-              </div>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
         <div className={styles["visible-assets"]}>
-          <h2 className={styles["visible-assets-heading"]}>Visible assets</h2>
-          <div className={styles["visible-assets-inputs"]}>
+          <h2 className={styles["visible-assets-heading"]}>Assets</h2>
+          <ul className={styles["visible-assets-inputs"]}>
             {allAssetIds.map(assetId => (
-              <div className={styles["visible-assets-input"]}>
+              <li className={styles["visible-assets-input"]}>
                 <label className={styles["visible-assets-label"]}>
                   <input
                     className={styles["visible-assets-input-checkbox"]}
@@ -78,9 +78,9 @@ function ChartDashboard(props: { projections: Projection[] } ) {
                     />
                   {assetId}
                 </label>
-              </div>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
       </div>
       <div className={styles["dashboard-main"]}>
