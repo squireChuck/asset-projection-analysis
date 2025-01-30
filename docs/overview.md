@@ -25,10 +25,18 @@ Multiple asset files
      e.g. as opposed to consecutive, separate graphs.
 
 TODO's
+- What do 50 assets per year look like?
+  - easy way to generate datasets? - DONE
+  - copy new datasets into cash flow files - DONE
+  - copy script into source code - DONE
+  - adjust filters + graphs based on quantity of data
+    - move filters to collapsible side bar widgets?
+    - search bar to filter visible assets (inside widget)
+       - Prolly not needed for projections - only two options anyways
+    - Show only selected/visible assets + Show all assets toggle
 - Update README for description, docs, running locally. Clean up docs
 - Data transform process
    - Given raw csv file from model run (aka Sheet CSV export) -> (mock) api call for data -> structured data for chart consumption
-- easy way to generate datasets?
 - new name - project-scry? project-verify, -verifeye
 - allow renaming of Projections (show fileName, allow update of project name)
 
