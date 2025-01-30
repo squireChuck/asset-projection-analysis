@@ -32,8 +32,8 @@ function ChartDashboard(props: { projections: Projection[] } ) {
     ];
   }, [] as Projection[]);
   return (
-    <>
-      <div className={styles["visible-filters"]}>
+    <div className={styles["dashboard"]}>
+      <div className={styles["dashboard-sidebar"]}>
         <div className={styles["visible-projections"]}>
           <h2 className={styles["visible-projections-heading"]}>Visible projections</h2>
           <div className={styles["visible-projections-inputs"]}>
@@ -83,15 +83,17 @@ function ChartDashboard(props: { projections: Projection[] } ) {
           </div>
         </div>
       </div>
-      <ProjectionChart
-        projections={filteredCashFlowData}
-        assetAttribute="Market Value"
-      />
-      <ProjectionChart
-        projections={filteredCashFlowData}
-        assetAttribute="Net yield"
-      />
-    </>
+      <div className={styles["dashboard-main"]}>
+        <ProjectionChart
+          projections={filteredCashFlowData}
+          assetAttribute="Market Value"
+          />
+        <ProjectionChart
+          projections={filteredCashFlowData}
+          assetAttribute="Net yield"
+        />
+      </div>
+    </div>
   );
 }
 
