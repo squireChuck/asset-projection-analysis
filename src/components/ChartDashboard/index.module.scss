@@ -48,10 +48,6 @@
   &>* {
     margin-bottom: 0.5rem;
   }
-
-  &>*:last-child {
-    margin-bottom: 0;
-  }
 }
 
 .visible-assets-heading,
@@ -68,6 +64,7 @@
 .visible-assets-bulk-actions-button {
   background: none;
   border: none;
+  color: gray;
   padding: 0;
 
   &:hover {
@@ -102,4 +99,18 @@
 .visible-assets-input-checkbox,
 .visible-projections-input-checkbox {
   margin-right: 0.25rem;
+}
+
+.visible-assets-only-select {
+  margin-left: 6px;
+  background: none;
+  border: none;
+  color: gray;
+  font-size: smaller;
+  padding: 0;
+
+  &:hover {
+    text-decoration: underline;
+    cursor: pointer;
+  }
 }

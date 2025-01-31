@@ -106,6 +106,16 @@ function ChartDashboard(props: { projections: Projection[] } ) {
                 <label className={styles["visible-assets-label"]}>
                   {assetId}
                 </label>
+                {
+                  searchAssetCheckboxString != null && searchAssetCheckboxString.trim().length > 0 && (
+                    <button
+                      className={styles["visible-assets-only-select"]}
+                      onClick={() => setSelectedAssetIds([assetId])}
+                    >
+                      select only
+                    </button>
+                  )
+                }
               </li>
             ))}
           </ul>
