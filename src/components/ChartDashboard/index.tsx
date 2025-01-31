@@ -78,7 +78,7 @@ function ChartDashboard(props: { projections: Projection[] } ) {
             <button
               className={styles["visible-assets-bulk-actions-button"]}
               onClick={() => setSelectedAssetIds([])}>
-                Clear
+                Clear all
             </button>
           </div>
           <input
