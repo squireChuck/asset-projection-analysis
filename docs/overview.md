@@ -26,17 +26,14 @@ Multiple asset files
 
 TODO's
 - What do 50 assets per year look like?
-  - easy way to generate datasets? - DONE
-  - copy new datasets into cash flow files - DONE
-  - copy script into source code - DONE
-  - adjust filters + graphs based on quantity of data
-    - move filters to collapsible side bar widgets? - DONE
-    - search bar to filter visible assets (inside widget)
-       - Prolly not needed for projections - only two options anyways
-    - Remove borders around everything - use a separator
-    - fix input checkbox label alignment
-    - what is a comfortable size for rendering the charts vertically? should there be an option to toggle which chart is shown (market value, net yield, both?)
-    - Show only selected/visible assets + Show all assets toggle
+  - fix input checkbox label alignment
+  - search filter => click to Show only this asset
+  - what is a comfortable size for rendering the charts vertically? should there be an option to toggle which chart is shown (market value, net yield, both?)
+- New page showing diff charts
+   - routing for components
+   - diff Market value (current - prev year) - % diff 
+   - diff yield (current - prev year) - flat diff
+   - expecting diff's to be close to zero, looking for outliers
 - Update README for description, docs, running locally. Clean up docs
 - Data transform process
    - Given raw csv file from model run (aka Sheet CSV export) -> (mock) api call for data -> structured data for chart consumption

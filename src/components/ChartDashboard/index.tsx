@@ -8,8 +8,7 @@ import styles from './index.module.scss';
 // Add behavior
 function ChartDashboard(props: { projections: Projection[] } ) {
   const { projections } = props;
-  console.log('', projections[0]);
-  console.log('', projections[1]);
+
   const [searchAssetCheckboxString, setSearchAssetCheckboxString] = useState("");
   const [selectedProjectionIds, setSelectedProjectionIds] = useState<string[]>(projections.map(p => p.id));
   const allAssetKeys: string[] = projections.reduce((accum, projection) => {
@@ -18,9 +17,9 @@ function ChartDashboard(props: { projections: Projection[] } ) {
       ...projection.assets.map(asset => asset.Asset)
     ];
   }, [] as string[]);
+
   const allAssetIds = Array.from(new Set((allAssetKeys)));
   const [selectedAssetIds, setSelectedAssetIds] = useState(allAssetIds);
-  console.log('', selectedAssetIds);
   const filteredCashFlowData: Projection[] = projections.reduce((accum, projection) => {
     if(!selectedProjectionIds.includes(projection.id)) {
       return accum;
@@ -34,6 +33,7 @@ function ChartDashboard(props: { projections: Projection[] } ) {
       next
     ];
   }, [] as Projection[]);
+
   return (
     <div className={styles["dashboard"]}>
       <div className={styles["dashboard-sidebar"]}>
@@ -102,7 +102,7 @@ function ChartDashboard(props: { projections: Projection[] } ) {
         <ProjectionChart
           projections={filteredCashFlowData}
           assetAttribute="Market Value"
-          />
+        />
         <ProjectionChart
           projections={filteredCashFlowData}
           assetAttribute="Net yield"
