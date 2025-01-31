@@ -49,7 +49,7 @@ export const run = () => {
   let multipliers: any = [];
   const assets = Array.from({ length: numberToGenerate }, (_, idx) => {
     const assetId = idx + initialAssetId;
-    // TODO make these vary by idx/iteration?
+
     const valueMultiplier = (0.2 * Math.random()) + 0.8;
     const interestMultiplier = 0.1 * Math.random()
     const yieldMultiplier = 0.1 * Math.random() + 0.9;

@@ -54,7 +54,6 @@ export interface ChartProps<
    * A fallback for when the canvas cannot be rendered. Can be used for accessible chart descriptions
    * @see https://www.chartjs.org/docs/latest/general/accessibility.html
    * @default null
-   * @todo Replace with `children` prop.
    */
   fallbackContent?: ReactNode;
   /**
@@ -64,9 +63,6 @@ export interface ChartProps<
   updateMode?: UpdateMode;
 }
 
-/**
- * @todo Replace `undefined` with `null`
- */
 export type ChartJSOrUndefined<
   TType extends ChartType = ChartType,
   TData = DefaultDataPoint<TType>,
