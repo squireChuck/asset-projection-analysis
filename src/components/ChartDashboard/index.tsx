@@ -70,9 +70,17 @@ function ChartDashboard(props: { projections: Projection[] } ) {
         <div className={styles["visible-assets"]}>
           <h2 className={styles["visible-assets-heading"]}>Assets</h2>
           <div className={styles["visible-assets-bulk-actions"]}>
-            <span onClick={() => setSelectedAssetIds(allAssetIds)}>Select all</span>
+            <button
+              className={styles["visible-assets-bulk-actions-button"]}
+              onClick={() => setSelectedAssetIds(allAssetIds)}>
+                Select all
+            </button>
             <span>-</span>
-            <span onClick={() => setSelectedAssetIds([])}>Clear</span>
+            <button
+              className={styles["visible-assets-bulk-actions-button"]}
+              onClick={() => setSelectedAssetIds([])}>
+                Clear
+            </button>
           </div>
           <input
             type="text"
