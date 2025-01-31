@@ -3,12 +3,11 @@ import { useState } from 'react';
 import ProjectionChart from '../common/ProjectionChart';
 import { Projection } from '../common/types';
 import styles from './index.module.scss';
-// Add input box
-// Add styles
-// Add behavior
+
 function ChartDashboard(props: { projections: Projection[] } ) {
   const { projections } = props;
 
+  const [showLegend, setShowLegend] = useState(true);
   const [searchAssetCheckboxString, setSearchAssetCheckboxString] = useState("");
   const [selectedProjectionIds, setSelectedProjectionIds] = useState<string[]>(projections.map(p => p.id));
   const allAssetKeys: string[] = projections.reduce((accum, projection) => {
@@ -120,15 +119,37 @@ function ChartDashboard(props: { projections: Projection[] } ) {
             ))}
           </ul>
         </div>
+        <div className={styles["visible-projections"]}>
+          <h2 className={styles["visible-projections-heading"]}>Chart settings</h2>
+          <ul className={styles["visible-projections-inputs"]}>
+            <li className={styles["visible-projections-input"]} >
+              <input
+                className={styles["visible-projections-input-checkbox"]}
+                type="checkbox"
+                name="visible-projections-input-toggle-legend"
+                checked={showLegend}
+                onChange={() => setShowLegend(!showLegend)}
+              />
+              <label
+                className={styles["visible-projections-label"]}
+                htmlFor="visible-projections-input-toggle-legend"
+              >
+                Show legend
+              </label>
+            </li>
+          </ul>
+        </div>
       </div>
       <div className={styles["dashboard-main"]}>
         <ProjectionChart
           projections={filteredCashFlowData}
           assetAttribute="Market Value"
-        />
+          showLegend={showLegend}
+          />
         <ProjectionChart
           projections={filteredCashFlowData}
           assetAttribute="Net yield"
+          showLegend={showLegend}
         />
       </div>
     </div>

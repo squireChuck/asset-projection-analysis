@@ -12,11 +12,12 @@ interface Dataset {
 interface Props {
   assetAttribute: 'Market Value' | 'Net yield';
   projections: Projection[];
+  showLegend: boolean;
 }
 
 // https://www.chartjs.org/docs/latest/samples/line/line.html
 function Chart(props: Props) {
-  const { projections, assetAttribute } = props;
+  const { projections, assetAttribute, showLegend } = props;
 
   const projectionsWithData = projections?.filter(projection => projection.assets?.length > 0) ?? [];
   if (projectionsWithData.length === 0) {
@@ -62,9 +63,12 @@ function Chart(props: Props) {
       colors: {
         forceOverride: true
       },
+      legend: {
+        display: showLegend,
+      },
       title: {
-          display: true,
-          text: assetAttribute,
+        display: true,
+        text: assetAttribute,
       }
     }
   };

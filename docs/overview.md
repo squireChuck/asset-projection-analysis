@@ -25,9 +25,6 @@ Multiple asset files
      e.g. as opposed to consecutive, separate graphs.
 
 TODO's
-- What do 50 assets per year look like?
-  - toggle chart legend
-  - what is a comfortable size for rendering the charts vertically? should there be an option to toggle which chart is shown (market value, net yield, both?)
 - New page showing diff charts
    - routing for components
    - diff Market value (current - prev year) - % diff 
@@ -36,8 +33,10 @@ TODO's
 - Update README for description, docs, running locally. Clean up docs
 - Data transform process
    - Given raw csv file from model run (aka Sheet CSV export) -> (mock) api call for data -> structured data for chart consumption
+- what is a comfortable size for rendering the charts vertically? should there be an option to toggle which chart is shown (market value, net yield, both?)
 - new name - project-scry? project-verify, -verifeye
 - allow renaming of Projections (show fileName, allow update of project name)
+- Anything marked in code?
 
 ## Learning
 
