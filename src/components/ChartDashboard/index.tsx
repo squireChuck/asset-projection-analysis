@@ -106,12 +106,28 @@ function ChartDashboard(props: { projections: Projection[] } ) {
                   {assetId}
                 </label>
                 {
-                  searchAssetCheckboxString != null && searchAssetCheckboxString.trim().length > 0 && (
+                  searchAssetCheckboxString != null
+                  && searchAssetCheckboxString.trim().length > 0
+                  && !(selectedAssetIds.length === 1 && selectedAssetIds.includes(assetId))
+                  && (
                     <button
                       className={styles["visible-assets-only-select"]}
                       onClick={() => setSelectedAssetIds([assetId])}
                     >
                       select only
+                    </button>
+                  )
+                }
+                {
+                  searchAssetCheckboxString != null
+                  && searchAssetCheckboxString.trim().length > 0
+                  && (selectedAssetIds.length === 1 && selectedAssetIds.includes(assetId))
+                  && (
+                    <button
+                      className={styles["visible-assets-only-select"]}
+                      onClick={() => setSelectedAssetIds(allAssetIds)}
+                    >
+                      select all
                     </button>
                   )
                 }
