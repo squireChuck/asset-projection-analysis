@@ -26,8 +26,9 @@ Multiple asset files
 
 TODO's
 - What do 50 assets per year look like?
-  - fix input checkbox label alignment
+  - Select All - Clear => make clicky looking
   - search filter => click to Show only this asset
+  - toggle chart legend
   - what is a comfortable size for rendering the charts vertically? should there be an option to toggle which chart is shown (market value, net yield, both?)
 - New page showing diff charts
    - routing for components

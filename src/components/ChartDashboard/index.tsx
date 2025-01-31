@@ -41,20 +41,26 @@ function ChartDashboard(props: { projections: Projection[] } ) {
           <h2 className={styles["visible-projections-heading"]}>Projections</h2>
           <ul className={styles["visible-projections-inputs"]}>
             {projections.map(projection => (
-              <li className={styles["visible-projections-input"]}>
-                <label className={styles["visible-projections-label"]}>
-                  <input
-                    className={styles["visible-projections-input-checkbox"]}
-                    type="checkbox"
-                    name={projection.name}
-                    checked={selectedProjectionIds.includes(projection.id)}
-                    onChange={() => {
-                      const nextSelectedIds = selectedProjectionIds.includes(projection.id)
-                        ? selectedProjectionIds.filter(id => id !== projection.id)
-                        : [...selectedProjectionIds, projection.id];
-                      setSelectedProjectionIds(nextSelectedIds);
-                    }}
-                    />
+              <li
+                key={`visible-projections-checkbox-${projection.name}`}
+                className={styles["visible-projections-input"]}
+              >
+                <input
+                  className={styles["visible-projections-input-checkbox"]}
+                  type="checkbox"
+                  name={projection.name}
+                  checked={selectedProjectionIds.includes(projection.id)}
+                  onChange={() => {
+                    const nextSelectedIds = selectedProjectionIds.includes(projection.id)
+                      ? selectedProjectionIds.filter(id => id !== projection.id)
+                      : [...selectedProjectionIds, projection.id];
+                    setSelectedProjectionIds(nextSelectedIds);
+                  }}
+                />
+                <label
+                  className={styles["visible-projections-label"]}
+                  htmlFor={projection.name}
+                >
                   {projection.name}
                 </label>
               </li>
@@ -63,34 +69,33 @@ function ChartDashboard(props: { projections: Projection[] } ) {
         </div>
         <div className={styles["visible-assets"]}>
           <h2 className={styles["visible-assets-heading"]}>Assets</h2>
-          <div>
+          <div className={styles["visible-assets-bulk-actions"]}>
             <span onClick={() => setSelectedAssetIds(allAssetIds)}>Select all</span>
-            <span>------</span>
+            <span>-</span>
             <span onClick={() => setSelectedAssetIds([])}>Clear</span>
           </div>
           <input
             type="text"
-            className={styles["visible-assets-checkbox-filter"]}
             placeholder="Filter"
             value={searchAssetCheckboxString}
             onChange={(e) => setSearchAssetCheckboxString(e.target.value)}
           />
           <ul className={styles["visible-assets-inputs"]}>
             {allAssetIds.filter(assetId => assetId.includes(searchAssetCheckboxString)).map(assetId => (
-              <li className={styles["visible-assets-input"]}>
+              <li key={`visible-asset-checkbox-${assetId}`} className={styles["visible-assets-input"]}>
+                <input
+                  className={styles["visible-assets-input-checkbox"]}
+                  type="checkbox"
+                  name={assetId}
+                  checked={selectedAssetIds.includes(assetId)}
+                  onChange={() => {
+                    const nextSelectedAssetIds = selectedAssetIds.includes(assetId)
+                      ? selectedAssetIds.filter(id => id !== assetId)
+                      : [...selectedAssetIds, assetId];
+                    setSelectedAssetIds(nextSelectedAssetIds);
+                  }}
+                  />
                 <label className={styles["visible-assets-label"]}>
-                  <input
-                    className={styles["visible-assets-input-checkbox"]}
-                    type="checkbox"
-                    name={assetId}
-                    checked={selectedAssetIds.includes(assetId)}
-                    onChange={() => {
-                      const nextSelectedAssetIds = selectedAssetIds.includes(assetId)
-                        ? selectedAssetIds.filter(id => id !== assetId)
-                        : [...selectedAssetIds, assetId];
-                      setSelectedAssetIds(nextSelectedAssetIds);
-                    }}
-                    />
                   {assetId}
                 </label>
               </li>

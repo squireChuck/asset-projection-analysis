@@ -32,7 +32,6 @@ function Chart(props: Props) {
 
   const datasets: Dataset[] = projectionsWithData.reduce((accum: Dataset[], projection: Projection) => {
     const next: Dataset[] = projection.assets.reduce((accum: Dataset[], asset: Asset) => {
-        console.log(`Projection ${projection.name}, Asset ${asset.Asset}, ${asset.Attribute}`)
         return asset.Attribute === assetAttribute
           ? 
             [

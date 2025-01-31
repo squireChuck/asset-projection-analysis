@@ -4,14 +4,14 @@
 }
 
 .chart {
+  // TODO what's a reasonable default that shows all content w/o scrolling?
+  //  initial setting: 50vh/50%
+  // TODO is there value to making these sizes adjustable, e.g. modal, small/med/large settings?
   height: 47%;
 
   position: relative;
   padding-bottom: 0.5rem;
   margin: 0.5rem;
-  // TODO what's a reasonable default that shows all content w/o scrolling?
-  //  initial setting: 50vh/50%
-  // TODO is there value to making these sizes adjustable, e.g. modal, small/med/large settings?
 
   &:first-of-type {
     border-bottom: 1px solid black;

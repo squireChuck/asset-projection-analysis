@@ -13,7 +13,6 @@
 .dashboard-main {
   width: 100%;
   height: 100%;
-  // background-color: blue;
   overflow-y: scroll;
 }
 
@@ -25,7 +24,6 @@
   max-width: 200px;
 
   height: 100%;
-  // background-color: red;
   border-right: 2px solid black;
 
   display: flex;
@@ -40,23 +38,36 @@
 .visible-assets,
 .visible-projections {
   border-bottom: 1px solid black;
-  // padding: 0.5rem;
   margin: 0.5rem;
+}
+
+.visible-assets {
+  display: flex;
+  flex-direction: column;
+
+  &>* {
+    margin-bottom: 0.5rem;
+  }
+
+  &>*:last-child {
+    margin-bottom: 0;
+  }
 }
 
 .visible-assets-heading,
 .visible-projections-heading {
-  margin: 0;
+  margin: 0 0 0.5rem 0;
 }
 
-.visible-assets-checkbox-filter {
-  width: 145px;
-  margin-left: auto;
-  margin-right: auto;
+.visible-assets-bulk-actions {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .visible-assets-inputs,
 .visible-projections-inputs {
+  margin: 0.5rem 0 0.5rem 0;
   padding-left: 1rem;
 
   max-height: 400px;
@@ -67,11 +78,6 @@
   justify-content: flex-start;
 }
 
-.visible-assets-label,
-.visible-projections-label {
-  display: flex;
-}
-
 .visible-assets-input,
 .visible-projections-input {
   margin: 0.25rem;
@@ -79,13 +85,10 @@
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  align-content: center;
-  // align-items: center;
+  align-items: center;
 }
 
 .visible-assets-input-checkbox,
 .visible-projections-input-checkbox {
   margin-right: 0.25rem;
-
-  flex: none;
 }
