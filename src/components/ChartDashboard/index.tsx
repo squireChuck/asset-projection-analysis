@@ -6,14 +6,14 @@ import styles from './index.module.scss';
 
 const chartDisplayType = {
   modelFiles: "model-files",
-  changeOverYear: "change-over-year",
+  differenceToPrior: "difference-to-prior",
 }
 
 function ChartDashboard(props: { projections: Projection[] } ) {
   const { projections } = props;
 
   const [selectedChartDisplayType, setSelectedChartDisplayType] = useState(chartDisplayType.modelFiles);
-  const [showLegend, setShowLegend] = useState(true);
+  const [showLegend, setShowLegend] = useState(false);
   const [searchAssetCheckboxString, setSearchAssetCheckboxString] = useState("");
   const [selectedProjectionIds, setSelectedProjectionIds] = useState<string[]>(projections.map(p => p.id));
   const allAssetKeys: string[] = projections.reduce((accum, projection) => {
@@ -38,7 +38,7 @@ function ChartDashboard(props: { projections: Projection[] } ) {
       next
     ];
   }, [] as Projection[]);
-  // console.log('', filteredCashFlowData)
+
   return (
     <div className={styles["dashboard"]}>
       <div className={styles["dashboard-sidebar"]}>
@@ -52,7 +52,7 @@ function ChartDashboard(props: { projections: Projection[] } ) {
             onChange={(e) => setSelectedChartDisplayType(e.target.value)}
           >
             <option value={chartDisplayType.modelFiles}>Model files</option>
-            <option value={chartDisplayType.changeOverYear}>Change over year</option>
+            <option value={chartDisplayType.differenceToPrior}>Difference to prior</option>
           </select>
         </div>
         { selectedChartDisplayType === chartDisplayType.modelFiles && (
@@ -192,16 +192,16 @@ function ChartDashboard(props: { projections: Projection[] } ) {
           />
         </>
       )}
-      { selectedChartDisplayType === chartDisplayType.changeOverYear && (
+      { selectedChartDisplayType === chartDisplayType.differenceToPrior && (
         <>
           <ProjectionChart
-            projections={createChangeProjection(filteredCashFlowData, 'Market Value', 'Change in Market Value')}
-            assetAttribute="Change in Market Value"
+            projections={createChangeProjection(filteredCashFlowData, 'Market Value', 'Percent change in Market Value')}
+            assetAttribute="Percent change in Market Value"
             showLegend={showLegend}
           />
           <ProjectionChart
-            projections={createChangeProjection(filteredCashFlowData, 'Net yield', 'Percent Change Net yield')}
-            assetAttribute="Change in Net yield"
+            projections={createChangeProjection(filteredCashFlowData, 'Net yield', 'Change in Net Yield')}
+            assetAttribute="Change in Net Yield"
             showLegend={showLegend}
           />
         </>
@@ -237,7 +237,14 @@ const computeChangeAssets = (
         .reduce((accum, datapointKey) => {
           const currentYearNumber = parseFloat(currentYearAsset[datapointKey]);
           const lastYearNumber = parseFloat(lastYearAsset[datapointKey]);
-          const computedChange = baseAttribute === 'Net yield'
+          if (parseInt(datapointKey) === 10 && baseAttribute === 'Net yield') {
+            console.log(``, {
+              datapointKey,
+              currentYearNumber,
+              lastYearNumber
+            })
+          }
+          const computedChange = baseAttribute === 'Market Value'
             ? (currentYearNumber - lastYearNumber) / currentYearNumber
             : (currentYearNumber - lastYearNumber);
           return {
@@ -245,6 +252,10 @@ const computeChangeAssets = (
             [datapointKey]: computedChange
           };
         }, { Asset: currentYearAsset.Asset, Attribute: newAttributeName })
+    }
+
+    if (baseAttribute === 'Net yield') {
+      console.log(`nextAsset...`, nextAsset)
     }
     
     return [...accum, nextAsset];

@@ -10,7 +10,7 @@ interface Dataset {
 }
 
 interface Props {
-  assetAttribute: 'Market Value' | 'Net yield' | 'Change in Market Value' | 'Change in Net yield';
+  assetAttribute: 'Market Value' | 'Net yield' | 'Percent change in Market Value' | 'Change in Net Yield';
   projections: Projection[];
   showLegend: boolean;
 }

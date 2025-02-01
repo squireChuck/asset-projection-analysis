@@ -17,6 +17,7 @@ Visible projections
 Visible assets
 - As a user, I want to control which assets are visible in both charts so that it's easier to analyze the most useful assets.
    - Toggle which Assets are shown
+   - TODO search back, bulk select/clear, select 1
 
 Multiple asset files
 - As a user, I want to compare Assets across multiple years so that it's easier to identify anomalies.
@@ -24,13 +25,16 @@ Multiple asset files
    - It's easier to compare Assets between years when they're on the same graph, 
      e.g. as opposed to consecutive, separate graphs.
 
+Feature: Change over year charts
+- TODO
+
+Feature: Quality of life
+- Chart settings - legend toggle
+
 TODO's
 - item level select only/select all
   - show message on hover
   - maybe clearer to only "select only". User then use bulk action to select/clear all
-- New page showing diff charts
-   - TODO verify computations
-   - expecting diff's to be close to zero, looking for outliers
 - Update README for description, docs, running locally. Clean up docs
 - Data transform process
    - Given raw csv file from model run (aka Sheet CSV export) -> (mock) api call for data -> structured data for chart consumption

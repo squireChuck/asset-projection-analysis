@@ -1,5 +1,10 @@
-# React + TypeScript + Vite
+# Project Verifeye
 
+TODO description
+TODO include features
+TODO running locally
+TODO local development
+TODO docs links
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 

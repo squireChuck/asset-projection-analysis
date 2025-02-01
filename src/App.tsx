@@ -8,9 +8,18 @@ import {
 import ChartDashboard from './components/ChartDashboard';
 
 // @ts-ignore
-import cashFlowData from './assets/cash-flow-testing-test.csv';
+import cashFlowData from './assets/cash-flow-testing.csv';
 // @ts-ignore
-import cashFlowDataYear0 from './assets/cash-flow-testing-year-0-test.csv';
+import cashFlowDataYear0 from './assets/cash-flow-testing-year-0.csv';
+// // @ts-ignore
+// import cashFlowData from './assets/cash-flow-testing-large.csv';
+// // @ts-ignore
+// import cashFlowDataYear0 from './assets/cash-flow-testing-year-0-large.csv';
+// // @ts-ignore
+// import cashFlowData from './assets/cash-flow-testing-test-diff-to-prior-year.csv';
+// // @ts-ignore
+// import cashFlowDataYear0 from './assets/cash-flow-testing-test-diff-to-prior-year-year-0.csv';
+
 // import styles from './App.module.scss';
 import { Asset, Projection } from './components/common/types';
 
