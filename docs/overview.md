@@ -25,6 +25,9 @@ Multiple asset files
      e.g. as opposed to consecutive, separate graphs.
 
 TODO's
+- item level select only/select all
+  - show message on hover
+  - maybe clearer to only "select only". User then use bulk action to select/clear all
 - New page showing diff charts
    - routing for components
    - diff Market value (current - prev year) - % diff 

@@ -36,6 +36,19 @@ function ChartDashboard(props: { projections: Projection[] } ) {
   return (
     <div className={styles["dashboard"]}>
       <div className={styles["dashboard-sidebar"]}>
+        <div className={styles["visible-charts"]}>
+          <h2 className={styles["visible-charts-heading"]}>Charts</h2>
+          <label className={styles["visible-charts-type"]} htmlFor="chart-type">Choose display:</label>
+          <select
+            className={styles["visible-charts-type"]}
+            name="chart-type"
+            value="model-files"
+            onChange={(e) => console.log(`Changed to ${e.target.value}`)}
+          >
+            <option value="model-files">Model files</option>
+            <option value="change-over-year">Change over year</option>
+          </select>
+        </div>
         <div className={styles["visible-projections"]}>
           <h2 className={styles["visible-projections-heading"]}>Projections</h2>
           <ul className={styles["visible-projections-inputs"]}>

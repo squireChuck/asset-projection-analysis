@@ -36,7 +36,8 @@
 }
 
 .visible-assets,
-.visible-projections {
+.visible-projections,
+.visible-charts {
   border-bottom: 1px solid black;
   margin: 0.5rem;
 }
@@ -51,8 +52,14 @@
 }
 
 .visible-assets-heading,
-.visible-projections-heading {
+.visible-projections-heading,
+.visible-charts-heading {
   margin: 0 0 0.5rem 0;
+}
+
+.visible-charts-type {
+  // display: inline-block;
+  margin: 0.5rem 0 0.5rem 1rem;
 }
 
 .visible-assets-bulk-actions {
@@ -101,6 +108,7 @@
   margin-right: 0.25rem;
 }
 
+// https://stackoverflow.com/questions/41803496/hide-element-on-hover-of-another-element
 .visible-assets-only-select {
   margin-left: 6px;
   background: none;
