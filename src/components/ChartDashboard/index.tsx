@@ -4,9 +4,15 @@ import ProjectionChart from '../common/ProjectionChart';
 import { Projection } from '../common/types';
 import styles from './index.module.scss';
 
+const chartDisplayType = {
+  modelFiles: "model-files",
+  changeOverYear: "change-over-year",
+}
+
 function ChartDashboard(props: { projections: Projection[] } ) {
   const { projections } = props;
 
+  const [selectedChartDisplayType, setSelectedChartDisplayType] = useState(chartDisplayType.modelFiles);
   const [showLegend, setShowLegend] = useState(true);
   const [searchAssetCheckboxString, setSearchAssetCheckboxString] = useState("");
   const [selectedProjectionIds, setSelectedProjectionIds] = useState<string[]>(projections.map(p => p.id));
@@ -42,43 +48,45 @@ function ChartDashboard(props: { projections: Projection[] } ) {
           <select
             className={styles["visible-charts-type"]}
             name="chart-type"
-            value="model-files"
-            onChange={(e) => console.log(`Changed to ${e.target.value}`)}
+            value={selectedChartDisplayType}
+            onChange={(e) => setSelectedChartDisplayType(e.target.value)}
           >
-            <option value="model-files">Model files</option>
-            <option value="change-over-year">Change over year</option>
+            <option value={chartDisplayType.modelFiles}>Model files</option>
+            <option value={chartDisplayType.changeOverYear}>Change over year</option>
           </select>
         </div>
-        <div className={styles["visible-projections"]}>
-          <h2 className={styles["visible-projections-heading"]}>Projections</h2>
-          <ul className={styles["visible-projections-inputs"]}>
-            {projections.map(projection => (
-              <li
-                key={`visible-projections-checkbox-${projection.name}`}
-                className={styles["visible-projections-input"]}
-              >
-                <input
-                  className={styles["visible-projections-input-checkbox"]}
-                  type="checkbox"
-                  name={projection.name}
-                  checked={selectedProjectionIds.includes(projection.id)}
-                  onChange={() => {
-                    const nextSelectedIds = selectedProjectionIds.includes(projection.id)
-                      ? selectedProjectionIds.filter(id => id !== projection.id)
-                      : [...selectedProjectionIds, projection.id];
-                    setSelectedProjectionIds(nextSelectedIds);
-                  }}
-                />
-                <label
-                  className={styles["visible-projections-label"]}
-                  htmlFor={projection.name}
+        { selectedChartDisplayType === chartDisplayType.modelFiles && (
+          <div className={styles["visible-projections"]}>
+            <h2 className={styles["visible-projections-heading"]}>Projections</h2>
+            <ul className={styles["visible-projections-inputs"]}>
+              {projections.map(projection => (
+                <li
+                  key={`visible-projections-checkbox-${projection.name}`}
+                  className={styles["visible-projections-input"]}
                 >
-                  {projection.name}
-                </label>
-              </li>
-            ))}
-          </ul>
-        </div>
+                  <input
+                    className={styles["visible-projections-input-checkbox"]}
+                    type="checkbox"
+                    name={projection.name}
+                    checked={selectedProjectionIds.includes(projection.id)}
+                    onChange={() => {
+                      const nextSelectedIds = selectedProjectionIds.includes(projection.id)
+                        ? selectedProjectionIds.filter(id => id !== projection.id)
+                        : [...selectedProjectionIds, projection.id];
+                      setSelectedProjectionIds(nextSelectedIds);
+                    }}
+                  />
+                  <label
+                    className={styles["visible-projections-label"]}
+                    htmlFor={projection.name}
+                  >
+                    {projection.name}
+                  </label>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
         <div className={styles["visible-assets"]}>
           <h2 className={styles["visible-assets-heading"]}>Assets</h2>
           <div className={styles["visible-assets-bulk-actions"]}>
@@ -170,16 +178,20 @@ function ChartDashboard(props: { projections: Projection[] } ) {
         </div>
       </div>
       <div className={styles["dashboard-main"]}>
-        <ProjectionChart
-          projections={filteredCashFlowData}
-          assetAttribute="Market Value"
-          showLegend={showLegend}
+      { selectedChartDisplayType === chartDisplayType.modelFiles && (
+        <>
+          <ProjectionChart
+            projections={filteredCashFlowData}
+            assetAttribute="Market Value"
+            showLegend={showLegend}
           />
-        <ProjectionChart
-          projections={filteredCashFlowData}
-          assetAttribute="Net yield"
-          showLegend={showLegend}
-        />
+          <ProjectionChart
+            projections={filteredCashFlowData}
+            assetAttribute="Net yield"
+            showLegend={showLegend}
+          />
+        </>
+      )}
       </div>
     </div>
   );
