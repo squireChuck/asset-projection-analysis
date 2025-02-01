@@ -6,7 +6,7 @@ export interface Asset {
 
 export interface Projection {
   id: string;
-  fileName: string;
+  fileName?: string;
   name: string;
   assets: Asset[];
 }

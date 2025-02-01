@@ -29,9 +29,7 @@ TODO's
   - show message on hover
   - maybe clearer to only "select only". User then use bulk action to select/clear all
 - New page showing diff charts
-   - routing for components
-   - diff Market value (current - prev year) - % diff 
-   - diff yield (current - prev year) - flat diff
+   - TODO verify computations
    - expecting diff's to be close to zero, looking for outliers
 - Update README for description, docs, running locally. Clean up docs
 - Data transform process

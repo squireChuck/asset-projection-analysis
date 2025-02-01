@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 import ProjectionChart from '../common/ProjectionChart';
-import { Projection } from '../common/types';
+import { Asset, Projection } from '../common/types';
 import styles from './index.module.scss';
 
 const chartDisplayType = {
@@ -38,7 +38,7 @@ function ChartDashboard(props: { projections: Projection[] } ) {
       next
     ];
   }, [] as Projection[]);
-
+  // console.log('', filteredCashFlowData)
   return (
     <div className={styles["dashboard"]}>
       <div className={styles["dashboard-sidebar"]}>
@@ -192,9 +192,79 @@ function ChartDashboard(props: { projections: Projection[] } ) {
           />
         </>
       )}
+      { selectedChartDisplayType === chartDisplayType.changeOverYear && (
+        <>
+          <ProjectionChart
+            projections={createChangeProjection(filteredCashFlowData, 'Market Value', 'Change in Market Value')}
+            assetAttribute="Change in Market Value"
+            showLegend={showLegend}
+          />
+          <ProjectionChart
+            projections={createChangeProjection(filteredCashFlowData, 'Net yield', 'Percent Change Net yield')}
+            assetAttribute="Change in Net yield"
+            showLegend={showLegend}
+          />
+        </>
+      )}
       </div>
     </div>
   );
 }
+
+const computeChangeAssets = (
+  currentYearProjection: Projection,
+  lastYearProjection: Projection,
+  baseAttribute: string,
+  newAttributeName: string,
+): Asset[] => {
+  return currentYearProjection.assets.reduce((accum, currentYearAsset) => {
+    if (currentYearAsset.Attribute !== baseAttribute) {
+      return accum;
+    }
+
+    const lastYearAsset = lastYearProjection.assets.find(
+      lastYearAsset => lastYearAsset.Asset === currentYearAsset.Asset && lastYearAsset.Attribute === baseAttribute
+    );
+
+    let nextAsset: Asset;
+    // if there's no data from last year, treat as if last year was all zero's
+    // TODO what if there was data last year but not this year?
+    if (lastYearAsset == null) {
+      nextAsset = { ...currentYearAsset, Attribute: newAttributeName };
+    } else {
+      nextAsset = Object.keys(currentYearAsset)
+        .filter(datapointKey => !['Asset', 'Attribute'].includes(datapointKey))
+        .reduce((accum, datapointKey) => {
+          const currentYearNumber = parseFloat(currentYearAsset[datapointKey]);
+          const lastYearNumber = parseFloat(lastYearAsset[datapointKey]);
+          const computedChange = baseAttribute === 'Net yield'
+            ? (currentYearNumber - lastYearNumber) / currentYearNumber
+            : (currentYearNumber - lastYearNumber);
+          return {
+            ...accum,
+            [datapointKey]: computedChange
+          };
+        }, { Asset: currentYearAsset.Asset, Attribute: newAttributeName })
+    }
+    
+    return [...accum, nextAsset];
+  }, [] as Asset[])
+};
+
+const createChangeProjection = (cashFlowData: Projection[], baseAttribute: string, newAttributeName: string): Projection[] => {
+  // TODO how to handle if missing current or last year?
+  const currentYear: Projection = cashFlowData.find((dataset: Projection) => dataset.name === 'Current year') as Projection;
+  const lastYear: Projection = cashFlowData.find((dataset: Projection) => dataset.name === 'Last year') as Projection;
+  const t = computeChangeAssets(currentYear, lastYear, baseAttribute, newAttributeName);
+  console.log('', t);
+  return [{
+    id: `change-${newAttributeName}`,
+    name: `Change in ${newAttributeName}`,
+    assets: t
+  }]
+}
+
+
+
 
 export default ChartDashboard;
