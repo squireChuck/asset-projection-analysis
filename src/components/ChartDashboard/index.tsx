@@ -111,44 +111,28 @@ function ChartDashboard(props: { projections: Projection[] } ) {
           <ul className={styles["visible-assets-inputs"]}>
             {allAssetIds.filter(assetId => assetId.includes(searchAssetCheckboxString)).map(assetId => (
               <li key={`visible-asset-checkbox-${assetId}`} className={styles["visible-assets-input"]}>
-                <input
-                  className={styles["visible-assets-input-checkbox"]}
-                  type="checkbox"
-                  name={assetId}
-                  checked={selectedAssetIds.includes(assetId)}
-                  onChange={() => {
-                    const nextSelectedAssetIds = selectedAssetIds.includes(assetId)
-                      ? selectedAssetIds.filter(id => id !== assetId)
-                      : [...selectedAssetIds, assetId];
-                    setSelectedAssetIds(nextSelectedAssetIds);
-                  }}
-                  />
                 <label className={styles["visible-assets-label"]}>
+                  <input
+                    className={styles["visible-assets-input-checkbox"]}
+                    type="checkbox"
+                    checked={selectedAssetIds.includes(assetId)}
+                    onChange={() => {
+                      const nextSelectedAssetIds = selectedAssetIds.includes(assetId)
+                        ? selectedAssetIds.filter(id => id !== assetId)
+                        : [...selectedAssetIds, assetId];
+                      setSelectedAssetIds(nextSelectedAssetIds);
+                    }}
+                  />
                   {assetId}
                 </label>
                 {
-                  searchAssetCheckboxString != null
-                  && searchAssetCheckboxString.trim().length > 0
-                  && !(selectedAssetIds.length === 1 && selectedAssetIds.includes(assetId))
+                  !(selectedAssetIds.length === 1 && selectedAssetIds.includes(assetId))
                   && (
                     <button
                       className={styles["visible-assets-only-select"]}
                       onClick={() => setSelectedAssetIds([assetId])}
                     >
                       select only
-                    </button>
-                  )
-                }
-                {
-                  searchAssetCheckboxString != null
-                  && searchAssetCheckboxString.trim().length > 0
-                  && (selectedAssetIds.length === 1 && selectedAssetIds.includes(assetId))
-                  && (
-                    <button
-                      className={styles["visible-assets-only-select"]}
-                      onClick={() => setSelectedAssetIds(allAssetIds)}
-                    >
-                      select all
                     </button>
                   )
                 }

@@ -110,6 +110,7 @@
 
 // https://stackoverflow.com/questions/41803496/hide-element-on-hover-of-another-element
 .visible-assets-only-select {
+  display: none;
   margin-left: 6px;
   background: none;
   border: none;
@@ -118,7 +119,12 @@
   padding: 0;
 
   &:hover {
+    display: block;
     text-decoration: underline;
     cursor: pointer;
   }
+}
+
+.visible-assets-input:hover .visible-assets-only-select {
+  display: block;
 }
