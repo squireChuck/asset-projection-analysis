@@ -1,7 +1,6 @@
-# Projection Selection
+# Asset Projection Analysis
 
-
-Projection Selection aids users assessing the correctness of model projections by:
+Asset Projection Analysis helps users assess the correctness of model projections by:
 - graphing asset files produced by modeling software
 - providing tools to identify potential outliers/issues in a projection, e.g. via filters or computing results against another file
 

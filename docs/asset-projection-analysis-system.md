@@ -6,8 +6,9 @@ A financial company uses Modeling Software to project the performance
 of asset portfolios under provided hypothetical scenarios (varying
 market conditions/assumptions/tail-risk analysis).
 Downstream teams use these projections to make investment/reserving
-decisions with "real capital", which can lead to lost revenue and
+decisions with real capital, which can lead to lost revenue and
 reputational damage if done improperly.
+
 Since human input can lead to erroneous projections, and thus, poor financial decisions,
 the company needs a system that helps actuaries verify the projections are sound.
 
@@ -29,7 +30,26 @@ Output
 
 The high-level functional requirements of the Asset Project Analysis System are as follows.
 
-TODO
+Visible projections
+- As a user, I want to control which projections are visible in both charts so that it's easier to analyze the most useful projections.
+   - Toggle which Projections are shown
+
+Visible assets
+- As a user, I want to control which assets are visible in both charts so that it's easier to analyze the most useful assets.
+   - Toggle which Assets are shown
+   - TODO search back, bulk select/clear, select 1
+
+Multiple asset files
+- As a user, I want to compare Assets across multiple years so that it's easier to identify anomalies.
+   - Sometimes I don't know an Asset's characteristic so I refer to prior years to gain context.
+   - It's easier to compare Assets between years when they're on the same graph, 
+     e.g. as opposed to consecutive, separate graphs.
+
+Feature: Change over year charts
+- TODO
+
+Feature: Quality of life
+- Chart settings - legend toggle
 
 ## Non-functional requirements
 
