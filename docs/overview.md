@@ -5,7 +5,7 @@
 1. Detail problem statement, solution goal, personal goals some design, requirements, architecture
 1. Render spreadsheet data in chart (chart js for ease)
    1. Assess performance, ease of working with data
-
+TODO include features
 
 Open questions
 - Validate data ahead of time? e.g. what if there are missing quarters? some files have fewer assets/fewer attributes than others?
