@@ -30,26 +30,32 @@ Output
 
 The high-level functional requirements of the Asset Project Analysis System are as follows.
 
-Visible projections
-- As a user, I want to control which projections are visible in both charts so that it's easier to analyze the most useful projections.
-   - Toggle which Projections are shown
-
-Visible assets
-- As a user, I want to control which assets are visible in both charts so that it's easier to analyze the most useful assets.
-   - Toggle which Assets are shown
-   - TODO search back, bulk select/clear, select 1
+Display different chart types
+- TODO Model files vs Change to prior charts
 
 Multiple asset files
 - As a user, I want to compare Assets across multiple years so that it's easier to identify anomalies.
    - Sometimes I don't know an Asset's characteristic so I refer to prior years to gain context.
    - It's easier to compare Assets between years when they're on the same graph, 
      e.g. as opposed to consecutive, separate graphs.
+   - Applies to the following types of charts: Model files
 
-Feature: Change over year charts
-- TODO
+Visible projections
+- As a user, I want to control which projections are visible so that it's easier to analyze the most useful projections.
+   - Toggle which Projections are shown
+   - Applies to the following types of charts: Model files
 
-Feature: Quality of life
-- Chart settings - legend toggle
+Visible assets
+- As a user, I want to control which assets are visible so that it's easier to analyze the most useful assets.
+   - Toggle which Assets are shown
+   - Applies to the following types of charts: Model files, Change to prior
+   - TODO bulk actions (select all/clear all), filter text box, select only
+   - TODO chart legend (when chart setting enabled) allows toggling individual asset datasets
+
+Customizable chart settings
+- As a user, I want to toggle on/off the chart legends so that I can disable them when
+  they get in the way (e.g. many datasets) and enable them when they're most helpful (e.g. few
+  datasets).
 
 ## Non-functional requirements
 

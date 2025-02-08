@@ -6,7 +6,7 @@ import styles from './index.module.scss';
 
 const chartDisplayType = {
   modelFiles: "model-files",
-  differenceToPrior: "difference-to-prior",
+  changeToPrior: "change-to-prior",
 }
 
 function ChartDashboard(props: { projections: Projection[] } ) {
@@ -52,7 +52,7 @@ function ChartDashboard(props: { projections: Projection[] } ) {
             onChange={(e) => setSelectedChartDisplayType(e.target.value)}
           >
             <option value={chartDisplayType.modelFiles}>Model files</option>
-            <option value={chartDisplayType.differenceToPrior}>Difference to prior</option>
+            <option value={chartDisplayType.changeToPrior}>Change to prior</option>
           </select>
         </div>
         { selectedChartDisplayType === chartDisplayType.modelFiles && (
@@ -176,7 +176,7 @@ function ChartDashboard(props: { projections: Projection[] } ) {
           />
         </>
       )}
-      { selectedChartDisplayType === chartDisplayType.differenceToPrior && (
+      { selectedChartDisplayType === chartDisplayType.changeToPrior && (
         <>
           <ProjectionChart
             projections={createChangeProjection(filteredCashFlowData, 'Market Value', 'Percent change in Market Value')}
