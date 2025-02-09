@@ -87,8 +87,11 @@ Customizable chart settings
 
 ## Non-functional requirements
 
-A number of non-functional requirements are out-of-scope for the MVP solution of the Asset Projection Analysis System, including: TODO
-
 The pertinent non-functional requirements are as follows.
 
-TODO
+### Scalability
+- The system must be able to render and permit reasonably smooth user interaction for a
+  minimum of two model files, where
+   - each file may contain up to 50 assets
+   - each asset may contain up to 4 asset attributes
+   - each asset attribute may contain up to 41 data points (time 0 + 40 quarters)
