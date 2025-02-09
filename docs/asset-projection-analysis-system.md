@@ -15,6 +15,8 @@ the company needs a system that helps actuaries verify the projections are sound
 
 ### Modeling software
 
+(Upstream system)
+
 Given:
 - Input file - levers that affect the model's projections
 - time 0 and other assumptions - typically supplied by other actuaries
@@ -26,36 +28,62 @@ Output
    - Attribute - attribute recorded in the csv row
    - Time `0 .. n` - attribute value at Time `n`, given in _years_
 
+### Glossary
+
+**Projection**, aka **model file**
+
+**Asset**
+
+**Asset Attribute**
+
+**Change to prior**
+
 ## Functional requirements
 
 The high-level functional requirements of the Asset Project Analysis System are as follows.
 
+Graph data from model files, aka "Model files"
+- As a user, I want to graph data directly from model files so that I can visually
+  inspect it for anomalies.
+- Graph multiple asset files, aka Visible Projections
+   - As a user, I want to compare Assets across multiple years so that it's easier to identify anomalies.
+      - Sometimes I don't know an Asset's characteristic so I refer to prior years to gain context.
+      - It's easier to compare Assets between years when they're on the same graph, 
+      e.g. as opposed to consecutive, separate graphs.
+   - As a user, I want to control which projections are visible so that it's easier to analyze the most useful projections.
+      - Feature: toggle which Projections are shown in the "Projections" section of the sidebar.
+
+Graph data from model files compared to other files, aka "change to prior"
+- As a user, I want to graph the difference between datasets so that I can easily
+  identify anomalies.
+   - example: if an asset should show ~0% change year-over-year, any deviations
+     from 0 will be easy to identify for further investigation.
+
 Display different chart types
-- TODO Model files vs Change to prior charts
-
-Multiple asset files
-- As a user, I want to compare Assets across multiple years so that it's easier to identify anomalies.
-   - Sometimes I don't know an Asset's characteristic so I refer to prior years to gain context.
-   - It's easier to compare Assets between years when they're on the same graph, 
-     e.g. as opposed to consecutive, separate graphs.
-   - Applies to the following types of charts: Model files
-
-Visible projections
-- As a user, I want to control which projections are visible so that it's easier to analyze the most useful projections.
-   - Toggle which Projections are shown
-   - Applies to the following types of charts: Model files
+- As a user, I want to switch between graphing model files and the "change to prior" so that I can easily
+  use the chart best suited for understanding assets and if they've changed in an explainable way.
+   - Feature: use the "Choose display" dropdown in the Charts section of the sidebar to graph
+     "Model files" or "Change to prior"
 
 Visible assets
 - As a user, I want to control which assets are visible so that it's easier to analyze the most useful assets.
-   - Toggle which Assets are shown
-   - Applies to the following types of charts: Model files, Change to prior
-   - TODO bulk actions (select all/clear all), filter text box, select only
-   - TODO chart legend (when chart setting enabled) allows toggling individual asset datasets
+   - Feature: toggle which Assets are shown in the Assets section of the sidebar.
+   - Feature: in the Assets section of the sidebar, click on the bulk actions (select all/clear all) to show/hide
+     all assets on the charts.
+   - Feature: in the Assets section of the sidebar, type into the filter text box to easily find assets where
+     you want to toggle its show/hide state.
+   - Feature: in the Assets section of the sidebar, hover over an asset to reveal a "select only" button, which
+     updates the charts to graph the single, associated asset.
+   - Feature: when the chart legends are enabled, click on an asset in the chart legend to toggle
+     showing/hiding individual asset datasets
 
 Customizable chart settings
 - As a user, I want to toggle on/off the chart legends so that I can disable them when
   they get in the way (e.g. many datasets) and enable them when they're most helpful (e.g. few
   datasets).
+   - Feature: toggle if legends are shown/hidden in the "Chart settings" section of the sidebar.
+      - Default to hide - when there are many datasets, the legends take up significant visual space in the chart layout. When there
+        are fewer datasets, it's easy enough to hover over a dataset for more information.
 
 ## Non-functional requirements
 

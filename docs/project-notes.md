@@ -7,7 +7,7 @@
 - Language: Typescript
 - Frontend: React, Sass, CSS Modules
 
-## Technical goals
+## Technical goals and practice
 
 - React + TS practice
 - CSS => explore modern techniques/framework
@@ -34,6 +34,9 @@
    - https://medium.com/@pdx.lucasm/canvas-with-react-js-32e133c05258
    - https://www.chartjs.org/docs/latest/samples/line/line.html
    - pulled in files from https://github.com/reactchartjs/react-chartjs-2/tree/master
+- Data processing
+   - Excel/Google Sheets - great for creating initial datasets
+   - TS - a simple script is great for generating many new data sets by adding randomness to the initial datasets
 
 ## Future ideas
 
