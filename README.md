@@ -4,6 +4,8 @@ Asset Projection Analysis helps users assess the correctness of model projection
 - graphing asset files produced by modeling software
 - providing tools to identify potential outliers/issues in a projection, e.g. via filters or computing results against another file
 
+See the `docs` folder for more details.
+
 The example data files in `src/assets` include:
 - simple datasets to facilitate development
    - cash-flow-testing.csv - current year's dataset
@@ -14,8 +16,6 @@ The example data files in `src/assets` include:
 - contrived datasets to test the "compare to prior" feature
    - cash-flow-testing-test-diff-to-prior-year.csv - current year's dataset
    - cash-flow-testing-test-diff-to-prior-year-0.csv - last year's dataset
-
-See the `docs` folder for more info.
 
 ## Local development
 
