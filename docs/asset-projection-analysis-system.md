@@ -61,7 +61,7 @@ Graph data from model files compared to other files, aka "change to prior"
 
 Display different chart types
 - As a user, I want to switch between graphing model files and the "change to prior" so that I can easily
-  use the chart best suited for understanding assets and if they've changed in an explainable way.
+  use the chart best suited for understanding assets and see if they've changed in an explainable way.
    - Feature: use the "Choose display" dropdown in the Charts section of the sidebar to graph
      "Model files" or "Change to prior"
 
